@@ -1,0 +1,208 @@
+/* ===== CSS CUSTOM PROPERTIES (DESIGN TOKENS) ===== */
+/* 
+ * Central design system configuration
+ * All colors, fonts, spacing, and design decisions stored here
+ * Change these values to update the entire site's appearance
+ */
+
+:root {
+  /* ===== BRAND COLORS ===== */
+  /* Primary brand colors based on McSherry.pro identity */
+  --color-primary: #667eea;           /* Main brand blue */
+  --color-secondary: #764ba2;         /* Complementary purple */
+  --color-accent: #48bb78;            /* Success/automation green */
+  
+  /* Neutral colors for text and backgrounds */
+  --color-dark: #2d3748;              /* Primary text color */
+  --color-light: #f7fafc;             /* Light background */
+  --color-white: #ffffff;             /* Pure white */
+  --color-text: #2d3748;              /* Body text */
+  --color-text-light: #4a5568;        /* Secondary text */
+  --color-border: #e2e8f0;            /* Subtle borders */
+  
+  /* ===== SERVICE PILLAR COLORS ===== */
+  /* Each service pillar has its own color for visual distinction */
+  --color-automation: #48bb78;        /* System Integration & Automation */
+  --color-analytics: #4299e1;         /* Business Analytics & Insight */
+  --color-digital: #ed8936;           /* Digital Experience & Presence */
+  --color-security: #9f7aea;          /* Smart Infrastructure & Security */
+  
+  /* ===== GRADIENTS ===== */
+  /* Consistent gradient patterns used throughout the site */
+  --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  --gradient-hero: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  --gradient-cta: linear-gradient(135deg, var(--color-dark) 0%, #4a5568 100%);
+  --gradient-card-hover: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  
+  /* ===== TYPOGRAPHY SCALE ===== */
+  /* Font families for consistent typography */
+  --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-heading: var(--font-family-primary);
+  --font-family-body: var(--font-family-primary);
+  --font-family-mono: 'Monaco', 'Consolas', monospace;
+  
+  /* Font sizes using modular scale (1.25 ratio) */
+  --font-size-xs: 0.75rem;            /* 12px */
+  --font-size-sm: 0.875rem;           /* 14px */
+  --font-size-base: 1rem;             /* 16px - base size */
+  --font-size-lg: 1.125rem;           /* 18px */
+  --font-size-xl: 1.25rem;            /* 20px */
+  --font-size-2xl: 1.5rem;            /* 24px */
+  --font-size-3xl: 1.875rem;          /* 30px */
+  --font-size-4xl: 2.25rem;           /* 36px */
+  --font-size-5xl: 3rem;              /* 48px */
+  --font-size-hero: 3.5rem;           /* 56px - hero headlines */
+  
+  /* Font weights for consistent text hierarchy */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  
+  /* Line heights for optimal readability */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.6;
+  --line-height-relaxed: 1.8;
+  
+  /* ===== SPACING SCALE ===== */
+  /* Consistent spacing using 8px base unit */
+  --space-0: 0;
+  --space-xs: 0.25rem;                /* 4px */
+  --space-sm: 0.5rem;                 /* 8px */
+  --space-md: 1rem;                   /* 16px */
+  --space-lg: 1.5rem;                 /* 24px */
+  --space-xl: 2rem;                   /* 32px */
+  --space-2xl: 3rem;                  /* 48px */
+  --space-3xl: 4rem;                  /* 64px */
+  --space-4xl: 6rem;                  /* 96px */
+  --space-5xl: 8rem;                  /* 128px */
+  
+  /* ===== BORDER RADIUS ===== */
+  /* Consistent rounded corners throughout the design */
+  --radius-none: 0;
+  --radius-sm: 10px;                  /* Small elements */
+  --radius-md: 15px;                  /* Cards and containers */
+  --radius-lg: 20px;                  /* Large sections */
+  --radius-full: 50px;                /* Pills and buttons */
+  --radius-circle: 50%;               /* Perfect circles */
+  
+  /* ===== SHADOWS ===== */
+  /* Layered shadow system for depth and hierarchy */
+  --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.25);
+  
+  /* Interactive shadows for hover states */
+  --shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.2);
+  --shadow-focus: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  
+  /* ===== TRANSITIONS ===== */
+  /* Consistent animation timing for smooth interactions */
+  --transition-fast: 0.15s ease-out;
+  --transition-normal: 0.3s ease-out;
+  --transition-slow: 0.6s ease-out;
+  
+  /* Specific transition patterns */
+  --transition-transform: transform var(--transition-normal);
+  --transition-colors: color var(--transition-normal), background-color var(--transition-normal);
+  --transition-shadow: box-shadow var(--transition-normal);
+  --transition-all: all var(--transition-normal);
+  
+  /* ===== LAYOUT CONSTRAINTS ===== */
+  /* Container and breakpoint definitions */
+  --container-max-width: 1200px;
+  --container-padding: 1rem;
+  --container-padding-mobile: 1rem;
+  --container-padding-desktop: 2rem;
+  
+  /* ===== Z-INDEX SCALE ===== */
+  /* Layering system for overlapping elements */
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1020;
+  --z-index-fixed: 1030;
+  --z-index-modal-backdrop: 1040;
+  --z-index-modal: 1050;
+  --z-index-popover: 1060;
+  --z-index-tooltip: 1070;
+  
+  /* ===== BREAKPOINTS ===== */
+  /* Responsive design breakpoints */
+  --breakpoint-sm: 576px;             /* Small devices */
+  --breakpoint-md: 768px;             /* Tablets */
+  --breakpoint-lg: 992px;             /* Desktops */
+  --breakpoint-xl: 1200px;            /* Large desktops */
+  
+  /* ===== FORM ELEMENTS ===== */
+  /* Consistent form styling variables */
+  --form-input-height: 3rem;
+  --form-input-padding: var(--space-md);
+  --form-input-border: 1px solid var(--color-border);
+  --form-input-border-focus: 2px solid var(--color-primary);
+  --form-input-bg: var(--color-white);
+  --form-input-bg-disabled: #f8f9fa;
+  
+  /* ===== GRID SYSTEM ===== */
+  /* CSS Grid and Flexbox utilities */
+  --grid-gap-sm: var(--space-md);
+  --grid-gap-md: var(--space-xl);
+  --grid-gap-lg: var(--space-3xl);
+  
+  /* ===== ACCESSIBILITY ===== */
+  /* WCAG compliant color contrast ratios */
+  --focus-ring-color: var(--color-primary);
+  --focus-ring-offset: 2px;
+  --focus-ring-width: 2px;
+  
+  /* High contrast mode support */
+  --high-contrast-border: 2px solid;
+  --high-contrast-bg: var(--color-white);
+  --high-contrast-text: var(--color-dark);
+}
+
+/* ===== DARK MODE SUPPORT ===== */
+/* Future-proofing for dark mode implementation */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark mode color overrides would go here */
+    /* Currently maintaining light theme for brand consistency */
+  }
+}
+
+/* ===== REDUCED MOTION SUPPORT ===== */
+/* Respects user's motion preferences for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: none;
+    --transition-normal: none;
+    --transition-slow: none;
+  }
+}
+
+/* ===== HIGH CONTRAST MODE SUPPORT ===== */
+/* Ensures accessibility in high contrast mode */
+@media (prefers-contrast: high) {
+  :root {
+    --color-border: var(--color-dark);
+    --shadow-sm: none;
+    --shadow-md: none;
+    --shadow-lg: none;
+  }
+}
+
+/* ===== PRINT STYLES VARIABLES ===== */
+/* Print-friendly color scheme */
+@media print {
+  :root {
+    --color-primary: #000000;
+    --color-secondary: #000000;
+    --gradient-primary: none;
+    --gradient-hero: none;
+    --shadow-sm: none;
+    --shadow-md: none;
+    --shadow-lg: none;
+  }
+}

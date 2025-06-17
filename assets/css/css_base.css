@@ -1,0 +1,130 @@
+/* ===== BASE STYLES & RESET ===== */
+/*
+ * Foundation styles for the entire website
+ * Includes CSS reset, typography, and base element styling
+ * Based on modern CSS reset practices and accessibility guidelines
+ */
+
+/* ===== CSS RESET ===== */
+/* Modern CSS reset based on Josh Comeau's CSS Reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove default margins and paddings from all elements */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== HTML & BODY ===== */
+/* Base document styling */
+
+html {
+  /* Smooth scrolling for anchor links */
+  scroll-behavior: smooth;
+  
+  /* Prevent font size inflation on mobile */
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  
+  /* Better font rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* Set base font size for rem calculations */
+  font-size: 16px;
+}
+
+body {
+  /* Typography foundation */
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+  
+  /* Background and layout */
+  background-color: var(--color-white);
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  
+  /* Better text rendering */
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1;
+  
+  /* Minimum height for full viewport coverage */
+  min-height: 100vh;
+}
+
+/* ===== TYPOGRAPHY ===== */
+/* Consistent typography scale and hierarchy */
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-dark);
+  margin-bottom: var(--space-md);
+  
+  /* Prevent text overflow */
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+h1 {
+  font-size: var(--font-size-hero);
+  font-weight: var(--font-weight-extrabold);
+  margin-bottom: var(--space-lg);
+}
+
+h2 {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-lg);
+}
+
+h3 {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-md);
+}
+
+h4 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-md);
+}
+
+h5 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-sm);
+}
+
+h6 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-sm);
+}
+
+/* Body text */
+p {
+  margin-bottom: var(--space-md);
+  color: var(--color-text);
+  
+  /* Better text flow */
+  orphans: 2;
+  widows: 2;
+}
+
+/* Lead text - larger introductory paragraphs */
+.lead {
+  font-size: var(--font-size-lg);
+  font-
