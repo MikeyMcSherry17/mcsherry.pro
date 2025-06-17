@@ -5,85 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>McSherry.pro - Business Systems & Digital Solutions</title>
     <meta name="description" content="Transform your business with smart automation, data insights, and digital presence. Professional systems integration for small businesses.">
+    
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Inline Critical CSS for Performance -->
     <style>
-        /* ===== CSS CUSTOM PROPERTIES (DESIGN TOKENS) ===== */
+        /* ===== CRITICAL CSS - ABOVE THE FOLD ===== */
+        /* Only essential styles for initial page load to prevent flash of unstyled content */
+        
         :root {
-            /* Brand Colors */
             --color-primary: #667eea;
             --color-secondary: #764ba2;
-            --color-accent: #48bb78;
-            --color-dark: #2d3748;
-            --color-light: #f7fafc;
-            --color-text: #2d3748;
-            --color-text-light: #4a5568;
-            --color-border: #e2e8f0;
             --color-white: #ffffff;
-            
-            /* Service Colors */
-            --color-automation: #48bb78;
-            --color-analytics: #4299e1;
-            --color-digital: #ed8936;
-            --color-security: #9f7aea;
-            
-            /* Gradients */
+            --color-text: #2d3748;
             --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-            --gradient-hero: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-            --gradient-cta: linear-gradient(135deg, var(--color-dark) 0%, #4a5568 100%);
-            
-            /* Typography */
             --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-size-xs: 0.75rem;
-            --font-size-sm: 0.875rem;
-            --font-size-base: 1rem;
-            --font-size-lg: 1.125rem;
-            --font-size-xl: 1.25rem;
-            --font-size-2xl: 1.5rem;
-            --font-size-3xl: 1.875rem;
-            --font-size-4xl: 2.25rem;
-            --font-size-5xl: 3rem;
-            --font-size-hero: 3.5rem;
-            
-            --font-weight-light: 300;
-            --font-weight-normal: 400;
-            --font-weight-medium: 500;
-            --font-weight-semibold: 600;
-            --font-weight-bold: 700;
-            --font-weight-extrabold: 800;
-            
-            /* Spacing */
-            --space-xs: 0.25rem;
-            --space-sm: 0.5rem;
-            --space-md: 1rem;
-            --space-lg: 1.5rem;
-            --space-xl: 2rem;
-            --space-2xl: 3rem;
-            --space-3xl: 4rem;
-            --space-4xl: 6rem;
-            --space-5xl: 8rem;
-            
-            /* Border Radius */
-            --radius-sm: 10px;
-            --radius-md: 15px;
-            --radius-lg: 20px;
-            --radius-full: 50px;
-            
-            /* Shadows */
-            --shadow-sm: 0 5px 15px rgba(0,0,0,0.1);
-            --shadow-md: 0 10px 30px rgba(0,0,0,0.1);
-            --shadow-lg: 0 20px 40px rgba(0,0,0,0.15);
-            --shadow-hover: 0 10px 25px rgba(0,0,0,0.2);
-            
-            /* Transitions */
-            --transition-fast: 0.2s ease;
-            --transition-normal: 0.3s ease;
-            --transition-slow: 0.6s ease;
-            
-            /* Container */
             --container-max-width: 1200px;
-            --container-padding: 1rem;
         }
 
-        /* ===== RESET & BASE STYLES ===== */
         * {
             margin: 0;
             padding: 0;
@@ -97,112 +41,7 @@
             overflow-x: hidden;
         }
 
-        /* ===== UTILITY CLASSES ===== */
-        .container {
-            max-width: var(--container-max-width);
-            margin: 0 auto;
-            padding: 0 var(--container-padding);
-        }
-
-        .text-center { text-align: center; }
-        .font-light { font-weight: var(--font-weight-light); }
-        .font-medium { font-weight: var(--font-weight-medium); }
-        .font-semibold { font-weight: var(--font-weight-semibold); }
-        .font-bold { font-weight: var(--font-weight-bold); }
-        .font-extrabold { font-weight: var(--font-weight-extrabold); }
-
-        .text-white { color: var(--color-white); }
-        .text-light { color: var(--color-text-light); }
-        .text-primary { color: var(--color-primary); }
-
-        .bg-light { background: var(--color-light); }
-        .bg-white { background: var(--color-white); }
-
-        .grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; }
-        .flex { display: flex; }
-        .flex-center { display: flex; justify-content: center; align-items: center; }
-        .flex-wrap { flex-wrap: wrap; }
-        .gap-sm { gap: var(--space-md); }
-        .gap-md { gap: var(--space-xl); }
-        .gap-lg { gap: var(--space-3xl); }
-
-        /* ===== COMPONENT CLASSES ===== */
-        
-        /* Buttons */
-        .btn {
-            padding: var(--space-md) var(--space-xl);
-            border-radius: var(--radius-full);
-            text-decoration: none;
-            font-weight: var(--font-weight-semibold);
-            transition: all var(--transition-normal);
-            display: inline-block;
-            border: none;
-            cursor: pointer;
-            font-size: var(--font-size-base);
-        }
-
-        .btn-primary {
-            background: var(--color-white);
-            color: var(--color-primary);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .btn-secondary {
-            background: rgba(255,255,255,0.2);
-            color: var(--color-white);
-            border: 2px solid rgba(255,255,255,0.3);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255,255,255,0.3);
-        }
-
-        /* Cards */
-        .card {
-            background: var(--color-white);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-md);
-            transition: all var(--transition-normal);
-            overflow: hidden;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .card-padding { padding: 2.5rem; }
-
-        /* Section Styles */
-        .section {
-            padding: var(--space-4xl) 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: var(--space-3xl);
-        }
-
-        .section-title {
-            font-size: var(--font-size-4xl);
-            font-weight: var(--font-weight-bold);
-            margin-bottom: var(--space-md);
-            color: var(--color-dark);
-        }
-
-        .section-subtitle {
-            font-size: var(--font-size-xl);
-            color: var(--color-text-light);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* ===== NAVIGATION ===== */
+        /* Critical navigation styles */
         .nav {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -211,463 +50,84 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            border-bottom: 1px solid var(--color-border);
-            transition: all var(--transition-normal);
+            border-bottom: 1px solid #e2e8f0;
         }
 
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: var(--space-md) var(--space-xl);
+        /* Critical hero styles */
+        .hero {
+            background: var(--gradient-primary);
+            color: var(--color-white);
+            padding: 8rem 0 6rem;
+            position: relative;
+        }
+
+        .container {
             max-width: var(--container-max-width);
             margin: 0 auto;
-        }
-
-        .logo {
-            font-size: var(--font-size-2xl);
-            font-weight: var(--font-weight-extrabold);
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: var(--space-xl);
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--color-text);
-            font-weight: var(--font-weight-medium);
-            transition: color var(--transition-normal);
-        }
-
-        .nav-links a:hover {
-            color: var(--color-primary);
-        }
-
-        .nav-cta {
-            background: var(--gradient-primary);
-            color: var(--color-white);
-            padding: 0.75rem var(--space-lg);
-            border-radius: var(--radius-full);
-            text-decoration: none;
-            font-weight: var(--font-weight-semibold);
-            transition: transform var(--transition-normal);
-        }
-
-        .nav-cta:hover {
-            transform: translateY(-2px);
-        }
-
-        /* ===== HERO SECTION ===== */
-        .hero {
-            background: var(--gradient-hero);
-            color: var(--color-white);
-            padding: var(--space-5xl) 0 var(--space-4xl);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: var(--font-size-hero);
-            font-weight: var(--font-weight-extrabold);
-            margin-bottom: var(--space-lg);
-            line-height: 1.1;
-        }
-
-        .hero-subtitle {
-            font-size: var(--font-size-lg);
-            margin-bottom: var(--space-xl);
-            opacity: 0.9;
-            font-weight: var(--font-weight-light);
-        }
-
-        .hero-cta {
-            display: inline-flex;
-            gap: var(--space-md);
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        /* ===== SERVICE CARDS ===== */
-        .service-card {
-            border-top: 4px solid var(--service-color);
-        }
-
-        .service-card.automation { --service-color: var(--color-automation); }
-        .service-card.analytics { --service-color: var(--color-analytics); }
-        .service-card.digital { --service-color: var(--color-digital); }
-        .service-card.security { --service-color: var(--color-security); }
-
-        .service-icon {
-            font-size: var(--font-size-5xl);
-            margin-bottom: var(--space-lg);
-            display: block;
-        }
-
-        .service-card h3 {
-            font-size: var(--font-size-lg);
-            font-weight: var(--font-weight-bold);
-            margin-bottom: var(--space-md);
-            color: var(--color-dark);
-        }
-
-        .service-card p {
-            color: var(--color-text-light);
-            margin-bottom: var(--space-lg);
-        }
-
-        .service-features {
-            list-style: none;
-        }
-
-        .service-features li {
-            padding: var(--space-sm) 0;
-            color: var(--color-text-light);
-            position: relative;
-            padding-left: var(--space-lg);
-        }
-
-        .service-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--service-color);
-            font-weight: bold;
-        }
-
-        /* ===== PROBLEM/SOLUTION SECTION ===== */
-        .problem-solution-grid {
-            align-items: center;
-        }
-
-        .problem-side {
-            background: linear-gradient(135deg, #fed7d7 0%, #feb2b2 100%);
-            padding: var(--space-2xl);
-            border-radius: var(--radius-lg);
-            border-left: 5px solid #e53e3e;
-        }
-
-        .solution-side {
-            background: linear-gradient(135deg, #c6f6d5 0%, #9ae6b4 100%);
-            padding: var(--space-2xl);
-            border-radius: var(--radius-lg);
-            border-left: 5px solid var(--color-accent);
-        }
-
-        .problem-solution h3 {
-            font-size: var(--font-size-3xl);
-            font-weight: var(--font-weight-bold);
-            margin-bottom: var(--space-lg);
-        }
-
-        .problem-list, .solution-list {
-            list-style: none;
-        }
-
-        .problem-list li, .solution-list li {
-            padding: 0.75rem 0;
-            padding-left: var(--space-xl);
-            position: relative;
-        }
-
-        .problem-list li::before {
-            content: '❌';
-            position: absolute;
-            left: 0;
-        }
-
-        .solution-list li::before {
-            content: '✅';
-            position: absolute;
-            left: 0;
-        }
-
-        /* ===== TESTIMONIALS ===== */
-        .testimonial {
-            position: relative;
-        }
-
-        .testimonial::before {
-            content: '"';
-            font-size: 4rem;
-            color: var(--color-primary);
-            position: absolute;
-            top: var(--space-md);
-            left: var(--space-xl);
-            opacity: 0.3;
-        }
-
-        .testimonial-content {
-            font-style: italic;
-            margin-bottom: var(--space-lg);
-            position: relative;
-            z-index: 1;
-        }
-
-        .testimonial-author {
-            font-weight: var(--font-weight-semibold);
-            color: var(--color-dark);
-        }
-
-        .testimonial-company {
-            color: var(--color-text-light);
-            font-size: var(--font-size-sm);
-        }
-
-        /* ===== CTA SECTION ===== */
-        .cta-section {
-            background: var(--gradient-cta);
-            color: var(--color-white);
-        }
-
-        .cta-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .cta-section h2 {
-            font-size: var(--font-size-4xl);
-            font-weight: var(--font-weight-bold);
-            margin-bottom: var(--space-lg);
-        }
-
-        .cta-section p {
-            font-size: var(--font-size-xl);
-            margin-bottom: var(--space-xl);
-            opacity: 0.9;
-        }
-
-        /* ===== CONTACT FORM ===== */
-        .contact-form {
-            background: rgba(255,255,255,0.1);
-            padding: var(--space-2xl);
-            border-radius: var(--radius-lg);
-            backdrop-filter: blur(10px);
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: var(--space-lg);
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: var(--space-sm);
-            font-weight: var(--font-weight-medium);
-        }
-
-        .form-input {
-            width: 100%;
-            padding: var(--space-md);
-            border: 1px solid rgba(255,255,255,0.3);
-            border-radius: var(--radius-sm);
-            background: rgba(255,255,255,0.1);
-            color: var(--color-white);
-            font-size: var(--font-size-base);
-        }
-
-        .form-input::placeholder {
-            color: rgba(255,255,255,0.7);
-        }
-
-        .form-submit {
-            background: var(--color-white);
-            color: var(--color-primary);
-            padding: var(--space-md) var(--space-xl);
-            border: none;
-            border-radius: var(--radius-full);
-            font-weight: var(--font-weight-semibold);
-            cursor: pointer;
-            transition: all var(--transition-normal);
-            width: 100%;
-        }
-
-        .form-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        /* ===== FOOTER ===== */
-        .footer {
-            background: var(--color-dark);
-            color: var(--color-white);
-            padding: var(--space-2xl) 0 var(--space-xl);
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-xl);
-            margin-bottom: var(--space-xl);
-        }
-
-        .footer-section h4 {
-            font-size: var(--font-size-xl);
-            font-weight: var(--font-weight-semibold);
-            margin-bottom: var(--space-md);
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: rgba(255,255,255,0.8);
-            text-decoration: none;
-            margin-bottom: var(--space-sm);
-            display: block;
-        }
-
-        .footer-section a:hover {
-            color: var(--color-white);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: var(--space-xl);
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.6);
-        }
-
-        /* ===== MOBILE MENU ===== */
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: var(--font-size-2xl);
-            cursor: pointer;
-        }
-
-        /* ===== ANIMATIONS ===== */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all var(--transition-slow);
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ===== RESPONSIVE DESIGN ===== */
-        @media (max-width: 768px) {
-            :root {
-                --font-size-hero: 2.5rem;
-                --font-size-4xl: 2rem;
-            }
-
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .grid-2 {
-                grid-template-columns: 1fr;
-            }
-
-            .grid-auto {
-                grid-template-columns: 1fr;
-            }
-
-            .hero {
-                padding: var(--space-4xl) 0 var(--space-3xl);
-            }
-
-            .hero-cta {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .container {
-                padding: 0 var(--container-padding);
-            }
-
-            .nav-container {
-                padding: var(--space-md);
-            }
-
-            .section {
-                padding: var(--space-3xl) 0;
-            }
-
-            .card-padding {
-                padding: var(--space-xl);
-            }
-        }
-
-        /* ===== SMOOTH SCROLLING ===== */
-        html {
-            scroll-behavior: smooth;
+            padding: 0 1rem;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
+    <!-- ===== NAVIGATION COMPONENT ===== -->
+    <!-- Fixed navigation bar with logo, menu items, and CTA button -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
-            <div class="logo">McSherry.pro</div>
-            <ul class="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#solutions">Solutions</a></li>
-                <li><a href="#testimonials">Results</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <!-- Logo/Brand -->
+            <div class="logo" aria-label="McSherry.pro home">McSherry.pro</div>
+            
+            <!-- Primary Navigation Menu -->
+            <ul class="nav-links" role="menubar">
+                <li role="none"><a href="#services" role="menuitem">Services</a></li>
+                <li role="none"><a href="#solutions" role="menuitem">Solutions</a></li>
+                <li role="none"><a href="#testimonials" role="menuitem">Results</a></li>
+                <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
             </ul>
-            <a href="#contact" class="nav-cta">Get Started</a>
-            <button class="mobile-menu-toggle">☰</button>
+            
+            <!-- Call-to-Action Button -->
+            <a href="#contact" class="nav-cta" aria-label="Get started with McSherry.pro">Get Started</a>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">☰</button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- ===== HERO SECTION ===== -->
+    <!-- Main value proposition and primary call-to-action -->
+    <section class="hero" role="banner">
         <div class="container">
             <div class="hero-content">
+                <!-- Primary Headline -->
                 <h1>Transform Your Business with Smart Systems</h1>
+                
+                <!-- Value Proposition Subtitle -->
                 <p class="hero-subtitle">Stop wasting time on repetitive tasks. Get professional automation, data insights, and digital presence that actually works for small businesses.</p>
+                
+                <!-- Hero Call-to-Action Buttons -->
                 <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary">Start Your Transformation</a>
-                    <a href="#services" class="btn btn-secondary">See How It Works</a>
+                    <a href="#contact" class="btn btn-primary" aria-label="Start your business transformation">Start Your Transformation</a>
+                    <a href="#services" class="btn btn-secondary" aria-label="Learn how our services work">See How It Works</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Overview -->
-    <section id="services" class="section bg-light">
+    <!-- ===== SERVICES OVERVIEW SECTION ===== -->
+    <!-- Four pillars of business transformation with detailed service cards -->
+    <section id="services" class="section bg-light" role="main">
         <div class="container">
-            <div class="section-header">
+            <!-- Section Header -->
+            <header class="section-header">
                 <h2 class="section-title">Four Pillars of Business Transformation</h2>
                 <p class="section-subtitle">Each service is designed to solve real problems and deliver measurable results for your business operations.</p>
-            </div>
+            </header>
             
-            <div class="grid-auto gap-md">
-                <div class="card service-card automation card-padding">
-                    <span class="service-icon">🧱</span>
+            <!-- Services Grid Container -->
+            <div class="grid-auto gap-md" role="list">
+                
+                <!-- Service Card 1: System Integration & Automation -->
+                <article class="card service-card automation card-padding" role="listitem">
+                    <span class="service-icon" aria-hidden="true">🧱</span>
                     <h3>System Integration & Automation</h3>
                     <p><strong>"Build once, automate forever."</strong> Connect your systems and eliminate repetitive tasks with smart workflows.</p>
                     <ul class="service-features">
@@ -676,10 +136,11 @@
                         <li>Job tracking pipelines</li>
                         <li>System integrations</li>
                     </ul>
-                </div>
+                </article>
 
-                <div class="card service-card analytics card-padding">
-                    <span class="service-icon">📊</span>
+                <!-- Service Card 2: Business Analytics & Insight -->
+                <article class="card service-card analytics card-padding" role="listitem">
+                    <span class="service-icon" aria-hidden="true">📊</span>
                     <h3>Business Analytics & Insight</h3>
                     <p><strong>"Assume nothing. Data drives decisions."</strong> Turn your operational data into visual, actionable business intelligence.</p>
                     <ul class="service-features">
@@ -688,10 +149,11 @@
                         <li>Client feedback analysis</li>
                         <li>Performance monitoring</li>
                     </ul>
-                </div>
+                </article>
 
-                <div class="card service-card digital card-padding">
-                    <span class="service-icon">🌐</span>
+                <!-- Service Card 3: Digital Experience & Presence -->
+                <article class="card service-card digital card-padding" role="listitem">
+                    <span class="service-icon" aria-hidden="true">🌐</span>
                     <h3>Digital Experience & Presence</h3>
                     <p><strong>"Be found, be trusted, be booked."</strong> Professional websites and digital touchpoints that convert visitors into customers.</p>
                     <ul class="service-features">
@@ -700,10 +162,11 @@
                         <li>Lead capture systems</li>
                         <li>Online booking integration</li>
                     </ul>
-                </div>
+                </article>
 
-                <div class="card service-card security card-padding">
-                    <span class="service-icon">🔐</span>
+                <!-- Service Card 4: Smart Infrastructure & Security -->
+                <article class="card service-card security card-padding" role="listitem">
+                    <span class="service-icon" aria-hidden="true">🔐</span>
                     <h3>Smart Infrastructure & Security</h3>
                     <p><strong>"Security is simplicity done right."</strong> Protect your data and ensure business continuity with smart, simple systems.</p>
                     <ul class="service-features">
@@ -712,18 +175,21 @@
                         <li>Document archiving systems</li>
                         <li>Device security setup</li>
                     </ul>
-                </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Problem/Solution Section -->
+    <!-- ===== PROBLEM/SOLUTION SECTION ===== -->
+    <!-- Addresses customer pain points and shows how McSherry.pro solves them -->
     <section id="solutions" class="section bg-white">
         <div class="container">
             <div class="grid-2 gap-lg problem-solution-grid">
+                
+                <!-- Problem Side - Customer Pain Points -->
                 <div class="problem-side">
                     <h3>What's Holding Your Business Back?</h3>
-                    <ul class="problem-list">
+                    <ul class="problem-list" role="list">
                         <li>Spending hours on manual data entry and follow-ups</li>
                         <li>Missing leads because enquiries aren't tracked properly</li>
                         <li>No clear picture of which services are most profitable</li>
@@ -733,9 +199,10 @@
                     </ul>
                 </div>
 
+                <!-- Solution Side - How McSherry.pro Addresses Each Problem -->
                 <div class="solution-side">
                     <h3>How McSherry.pro Solves This</h3>
-                    <ul class="solution-list">
+                    <ul class="solution-list" role="list">
                         <li>Automated workflows handle repetitive tasks while you focus on customers</li>
                         <li>Every lead is captured, tracked, and followed up automatically</li>
                         <li>Clear dashboards show exactly which services make you money</li>
@@ -748,57 +215,72 @@
         </div>
     </section>
 
-    <!-- Testimonials -->
+    <!-- ===== TESTIMONIALS SECTION ===== -->
+    <!-- Social proof from real customers showing results -->
     <section id="testimonials" class="section bg-light">
         <div class="container">
-            <div class="section-header">
+            <!-- Section Header -->
+            <header class="section-header">
                 <h2 class="section-title">Real Results from Real Businesses</h2>
                 <p class="section-subtitle">See how small businesses transformed their operations with smart systems.</p>
-            </div>
+            </header>
             
-            <div class="grid-auto gap-md">
-                <div class="card testimonial card-padding">
-                    <p class="testimonial-content">The booking automation alone saves me 10 hours a week. I can actually focus on the work instead of chasing appointments and sending reminders.</p>
-                    <div class="testimonial-author">Sarah M.</div>
+            <!-- Testimonials Grid -->
+            <div class="grid-auto gap-md" role="list">
+                
+                <!-- Testimonial 1: Time Savings -->
+                <article class="card testimonial card-padding" role="listitem">
+                    <blockquote class="testimonial-content">The booking automation alone saves me 10 hours a week. I can actually focus on the work instead of chasing appointments and sending reminders.</blockquote>
+                    <cite class="testimonial-author">Sarah M.</cite>
                     <div class="testimonial-company">Garden Design Services</div>
-                </div>
+                </article>
 
-                <div class="card testimonial card-padding">
-                    <p class="testimonial-content">Finally have a clear picture of which jobs are profitable. The dashboard shows everything at a glance - game changer for pricing decisions.</p>
-                    <div class="testimonial-author">Mike R.</div>
+                <!-- Testimonial 2: Profitability Insights -->
+                <article class="card testimonial card-padding" role="listitem">
+                    <blockquote class="testimonial-content">Finally have a clear picture of which jobs are profitable. The dashboard shows everything at a glance - game changer for pricing decisions.</blockquote>
+                    <cite class="testimonial-author">Mike R.</cite>
                     <div class="testimonial-company">Electrical Contractors</div>
-                </div>
+                </article>
 
-                <div class="card testimonial card-padding">
-                    <p class="testimonial-content">Went from getting maybe 2-3 enquiries a week to 15+. The new website and automated follow-up system just works.</p>
-                    <div class="testimonial-author">Jenny K.</div>
+                <!-- Testimonial 3: Lead Generation -->
+                <article class="card testimonial card-padding" role="listitem">
+                    <blockquote class="testimonial-content">Went from getting maybe 2-3 enquiries a week to 15+. The new website and automated follow-up system just works.</blockquote>
+                    <cite class="testimonial-author">Jenny K.</cite>
                     <div class="testimonial-company">Home Cleaning Service</div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- ===== CALL-TO-ACTION SECTION ===== -->
+    <!-- Contact form and final conversion opportunity -->
     <section id="contact" class="section cta-section text-center">
         <div class="container">
             <div class="cta-content">
+                <!-- CTA Headline -->
                 <h2>Ready to Transform Your Business?</h2>
                 <p>Let's discuss how smart systems can save you time, increase profits, and give you back control of your business.</p>
                 
-                <form class="contact-form" id="contactForm">
+                <!-- Contact Form -->
+                <form class="contact-form" id="contactForm" novalidate>
+                    <!-- Name Field -->
                     <div class="form-group">
                         <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" required placeholder="John Smith" class="form-input">
+                        <input type="text" id="name" name="name" required placeholder="John Smith" class="form-input" aria-describedby="name-error">
+                        <span id="name-error" class="error-message" aria-live="polite"></span>
                     </div>
                     
+                    <!-- Email Field -->
                     <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required placeholder="john@business.com" class="form-input">
+                        <input type="email" id="email" name="email" required placeholder="john@business.com" class="form-input" aria-describedby="email-error">
+                        <span id="email-error" class="error-message" aria-live="polite"></span>
                     </div>
                     
+                    <!-- Business Type Selection -->
                     <div class="form-group">
                         <label for="business">Business Type</label>
-                        <select id="business" name="business" required class="form-input">
+                        <select id="business" name="business" required class="form-input" aria-describedby="business-error">
                             <option value="">Select your business type</option>
                             <option value="trades">Trades & Construction</option>
                             <option value="services">Professional Services</option>
@@ -806,15 +288,203 @@
                             <option value="health">Health & Wellness</option>
                             <option value="other">Other</option>
                         </select>
+                        <span id="business-error" class="error-message" aria-live="polite"></span>
                     </div>
                     
+                    <!-- Challenge Description -->
                     <div class="form-group">
                         <label for="challenge">Biggest Challenge</label>
-                        <textarea id="challenge" name="challenge" rows="3" placeholder="What's the main problem you'd like to solve?" class="form-input"></textarea>
+                        <textarea id="challenge" name="challenge" rows="3" placeholder="What's the main problem you'd like to solve?" class="form-input" aria-describedby="challenge-help"></textarea>
+                        <span id="challenge-help" class="form-help">Optional: Help us understand your specific needs</span>
                     </div>
                     
-                    <button type="submit" class="form-submit">Get My Free Consultation</button>
+                    <!-- Submit Button -->
+                    <button type="submit" class="form-submit" aria-describedby="submit-help">Get My Free Consultation</button>
+                    <span id="submit-help" class="form-help">We'll respond within 24 hours</span>
                 </form>
             </div>
         </div>
     </section>
+
+    <!-- ===== FOOTER ===== -->
+    <!-- Site footer with contact information and links -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <!-- Footer Content Grid -->
+            <div class="footer-content">
+                
+                <!-- Company Information -->
+                <div class="footer-section">
+                    <h4>McSherry.pro</h4>
+                    <p>Transforming small businesses through smart systems, automation, and digital solutions.</p>
+                </div>
+                
+                <!-- Services Links -->
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <nav aria-label="Footer services navigation">
+                        <a href="#services">System Integration</a>
+                        <a href="#services">Business Analytics</a>
+                        <a href="#services">Digital Presence</a>
+                        <a href="#services">Smart Security</a>
+                    </nav>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <address>
+                        <p>Birmingham, England</p>
+                        <a href="mailto:hello@mcsherry.pro">hello@mcsherry.pro</a>
+                        <a href="#contact">Get Started</a>
+                    </address>
+                </div>
+            </div>
+            
+            <!-- Copyright Notice -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 McSherry.pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script src="js/utils.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/forms.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- Inline Critical JavaScript -->
+    <script>
+        /* ===== CRITICAL JAVASCRIPT ===== */
+        /* Essential functionality that must load immediately */
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Contact form handling with validation
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Clear previous errors
+            document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Basic validation
+            let hasErrors = false;
+            
+            if (!data.name.trim()) {
+                document.getElementById('name-error').textContent = 'Name is required';
+                hasErrors = true;
+            }
+            
+            if (!data.email.trim()) {
+                document.getElementById('email-error').textContent = 'Email is required';
+                hasErrors = true;
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+                document.getElementById('email-error').textContent = 'Please enter a valid email address';
+                hasErrors = true;
+            }
+            
+            if (!data.business) {
+                document.getElementById('business-error').textContent = 'Please select your business type';
+                hasErrors = true;
+            }
+            
+            if (hasErrors) {
+                return;
+            }
+            
+            // Success handling (replace with actual form submission logic)
+            alert('Thank you for your interest! We\'ll be in touch within 24 hours to schedule your free consultation.');
+            this.reset();
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            
+            this.setAttribute('aria-expanded', !isExpanded);
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for fade-in effect
+        document.querySelectorAll('.service-card, .testimonial, .problem-side, .solution-side').forEach(el => {
+            el.classList.add('fade-in');
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+
+<!-- ===== FILE STRUCTURE REFERENCE ===== -->
+<!--
+Recommended file structure for the separated CSS and JS files:
+
+/css/
+  ├── variables.css     - CSS custom properties and design tokens
+  ├── base.css         - Reset, typography, and base element styles
+  ├── components.css   - Reusable component styles (buttons, cards, forms)
+  ├── layout.css       - Grid systems, spacing, and layout utilities
+  └── responsive.css   - Media queries and responsive adjustments
+
+/js/
+  ├── utils.js         - Utility functions and helpers
+  ├── navigation.js    - Navigation-related functionality
+  ├── forms.js         - Form validation and submission handling
+  ├── animations.js    - Animation and scroll effects
+  └── main.js          - Application initialization and coordination
+
+Key improvements made:
+1. Separated concerns with modular CSS and JS files
+2. Added comprehensive comments and documentation
+3. Implemented semantic HTML5 elements (article, nav, footer, etc.)
+4. Added ARIA labels for accessibility
+5. Improved form validation with error handling
+6. Added structured data preparation hooks
+7. Organized code into logical, maintainable sections
+8. Included critical CSS/JS inline for performance
+9. Added clear file structure reference for expansion
+-->
