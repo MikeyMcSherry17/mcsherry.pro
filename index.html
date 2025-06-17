@@ -5,30 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>McSherry.pro - Business Systems & Digital Solutions</title>
     <meta name="description" content="Transform your business with smart automation, data insights, and digital presence. Professional systems integration for small businesses.">
+    
     <style>
         /* ===== CSS CUSTOM PROPERTIES (DESIGN TOKENS) ===== */
         :root {
-            /* Brand Colors */
-            --color-primary: #667eea;
-            --color-secondary: #764ba2;
-            --color-accent: #48bb78;
-            --color-dark: #2d3748;
-            --color-light: #f7fafc;
-            --color-text: #2d3748;
-            --color-text-light: #4a5568;
-            --color-border: #e2e8f0;
+            /* Strategic Brand Colors - Tech-forward, trustworthy palette */
+            --color-primary: #1E293B;           /* Charcoal - sophisticated, stable, modern */
+            --color-secondary: #475569;         /* Slate Blue - reinforces intelligence and depth */
+            --color-accent: #06B6D4;            /* Electric Cyan - futuristic and energetic */
+            --color-cta: #F59E0B;               /* Amber - warm, attention-grabbing CTAs */
+            --color-success: #34D399;           /* Spring Green - confirmations, success states */
+            --color-warning: #F87171;           /* Red-Orange - alerts, errors */
+            
+            --color-dark: #1E293B;              /* Primary text color */
+            --color-light: #F8FAFC;             /* Ultra-light background */
+            --color-neutral: #E2E8F0;           /* Soft Gray - clean, minimal */
+            --color-text: #1E293B;              /* Body text */
+            --color-text-light: #475569;        /* Secondary text */
+            --color-text-muted: #64748B;        /* Muted text */
+            --color-border: #E2E8F0;            /* Subtle borders */
             --color-white: #ffffff;
             
-            /* Service Colors */
-            --color-automation: #48bb78;
-            --color-analytics: #4299e1;
-            --color-digital: #ed8936;
-            --color-security: #9f7aea;
+            /* Service Pillar Colors - Aligned with new palette */
+            --color-automation: #34D399;        /* System Integration & Automation - Success Green */
+            --color-analytics: #06B6D4;         /* Business Analytics & Insight - Electric Cyan */
+            --color-digital: #F59E0B;           /* Digital Experience & Presence - Amber */
+            --color-security: #8B5CF6;          /* Smart Infrastructure & Security - Purple accent */
             
-            /* Gradients */
+            /* Modern Gradients */
             --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
             --gradient-hero: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-            --gradient-cta: linear-gradient(135deg, var(--color-dark) 0%, #4a5568 100%);
+            --gradient-accent: linear-gradient(135deg, var(--color-accent) 0%, #0891B2 100%);
+            --gradient-cta: linear-gradient(135deg, var(--color-cta) 0%, #D97706 100%);
+            --gradient-success: linear-gradient(135deg, var(--color-success) 0%, #10B981 100%);
             
             /* Typography */
             --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -67,11 +76,12 @@
             --radius-lg: 20px;
             --radius-full: 50px;
             
-            /* Shadows */
-            --shadow-sm: 0 5px 15px rgba(0,0,0,0.1);
-            --shadow-md: 0 10px 30px rgba(0,0,0,0.1);
-            --shadow-lg: 0 20px 40px rgba(0,0,0,0.15);
-            --shadow-hover: 0 10px 25px rgba(0,0,0,0.2);
+            /* Modern Shadows */
+            --shadow-sm: 0 4px 12px rgba(30, 41, 59, 0.12);
+            --shadow-md: 0 8px 24px rgba(30, 41, 59, 0.15);
+            --shadow-lg: 0 16px 40px rgba(30, 41, 59, 0.2);
+            --shadow-hover: 0 12px 32px rgba(6, 182, 212, 0.15);
+            --shadow-cta-hover: 0 8px 24px rgba(245, 158, 11, 0.3);
             
             /* Transitions */
             --transition-fast: 0.2s ease;
@@ -143,23 +153,26 @@
         }
 
         .btn-primary {
-            background: var(--color-white);
-            color: var(--color-primary);
+            background: var(--gradient-cta);
+            color: var(--color-white);
+            border: 2px solid transparent;
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
+            box-shadow: var(--shadow-cta-hover);
         }
 
         .btn-secondary {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.15);
             color: var(--color-white);
             border: 2px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
         }
 
         .btn-secondary:hover {
-            background: rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.25);
+            border-color: rgba(255,255,255,0.5);
         }
 
         /* Cards */
@@ -247,21 +260,22 @@
         }
 
         .nav-links a:hover {
-            color: var(--color-primary);
+            color: var(--color-accent);
         }
 
         .nav-cta {
-            background: var(--gradient-primary);
+            background: var(--gradient-cta);
             color: var(--color-white);
             padding: 0.75rem var(--space-lg);
             border-radius: var(--radius-full);
             text-decoration: none;
             font-weight: var(--font-weight-semibold);
-            transition: transform var(--transition-normal);
+            transition: transform var(--transition-normal), box-shadow var(--transition-normal);
         }
 
         .nav-cta:hover {
             transform: translateY(-2px);
+            box-shadow: var(--shadow-cta-hover);
         }
 
         /* ===== HERO SECTION ===== */
@@ -365,17 +379,17 @@
         }
 
         .problem-side {
-            background: linear-gradient(135deg, #fed7d7 0%, #feb2b2 100%);
+            background: linear-gradient(135deg, #FEF2F2 0%, #FECACA 100%);
             padding: var(--space-2xl);
             border-radius: var(--radius-lg);
-            border-left: 5px solid #e53e3e;
+            border-left: 5px solid var(--color-warning);
         }
 
         .solution-side {
-            background: linear-gradient(135deg, #c6f6d5 0%, #9ae6b4 100%);
+            background: linear-gradient(135deg, #ECFDF5 0%, #BBF7D0 100%);
             padding: var(--space-2xl);
             border-radius: var(--radius-lg);
-            border-left: 5px solid var(--color-accent);
+            border-left: 5px solid var(--color-success);
         }
 
         .problem-solution h3 {
@@ -414,7 +428,7 @@
         .testimonial::before {
             content: '"';
             font-size: 4rem;
-            color: var(--color-primary);
+            color: var(--color-accent);
             position: absolute;
             top: var(--space-md);
             left: var(--space-xl);
@@ -440,7 +454,7 @@
 
         /* ===== CTA SECTION ===== */
         .cta-section {
-            background: var(--gradient-cta);
+            background: var(--gradient-primary);
             color: var(--color-white);
         }
 
@@ -496,8 +510,8 @@
         }
 
         .form-submit {
-            background: var(--color-white);
-            color: var(--color-primary);
+            background: var(--gradient-cta);
+            color: var(--color-white);
             padding: var(--space-md) var(--space-xl);
             border: none;
             border-radius: var(--radius-full);
@@ -509,7 +523,7 @@
 
         .form-submit:hover {
             transform: translateY(-2px);
-            box-shadow: var(--shadow-hover);
+            box-shadow: var(--shadow-cta-hover);
         }
 
         /* ===== FOOTER ===== */
@@ -628,46 +642,51 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
+    <!-- ===== NAVIGATION COMPONENT ===== -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
-            <div class="logo">McSherry.pro</div>
-            <ul class="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#solutions">Solutions</a></li>
-                <li><a href="#testimonials">Results</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <div class="logo" aria-label="McSherry.pro home">McSherry.pro</div>
+            
+            <ul class="nav-links" role="menubar">
+                <li role="none"><a href="#services" role="menuitem">Services</a></li>
+                <li role="none"><a href="#solutions" role="menuitem">Solutions</a></li>
+                <li role="none"><a href="#testimonials" role="menuitem">Results</a></li>
+                <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
             </ul>
-            <a href="#contact" class="nav-cta">Get Started</a>
-            <button class="mobile-menu-toggle">☰</button>
+            
+            <a href="#contact" class="nav-cta" aria-label="Get started with McSherry.pro">Get Started</a>
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">☰</button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" role="banner">
         <div class="container">
             <div class="hero-content">
                 <h1>Transform Your Business with Smart Systems</h1>
+                
                 <p class="hero-subtitle">Stop wasting time on repetitive tasks. Get professional automation, data insights, and digital presence that actually works for small businesses.</p>
+                
                 <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary">Start Your Transformation</a>
-                    <a href="#services" class="btn btn-secondary">See How It Works</a>
+                    <a href="#contact" class="btn btn-primary" aria-label="Start your business transformation">Start Your Transformation</a>
+                    <a href="#services" class="btn btn-secondary" aria-label="Learn how our services work">See How It Works</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Overview -->
-    <section id="services" class="section bg-light">
+    <!-- ===== SERVICES OVERVIEW SECTION ===== -->
+    <section id="services" class="section bg-light" role="main">
         <div class="container">
-            <div class="section-header">
+            <header class="section-header">
                 <h2 class="section-title">Four Pillars of Business Transformation</h2>
                 <p class="section-subtitle">Each service is designed to solve real problems and deliver measurable results for your business operations.</p>
-            </div>
+            </header>
             
-            <div class="grid-auto gap-md">
-                <div class="card service-card automation card-padding">
-                    <span class="service-icon">🧱</span>
+            <div class="grid-auto gap-md" role="list">
+                <article class="card service-card automation card-padding" role="listitem">
+                    <span class="service-icon" aria-hidden="true">🧱</span>
                     <h3>System Integration & Automation</h3>
                     <p><strong>"Build once, automate forever."</strong> Connect your systems and eliminate repetitive tasks with smart workflows.</p>
                     <ul class="service-features">
@@ -676,10 +695,10 @@
                         <li>Job tracking pipelines</li>
                         <li>System integrations</li>
                     </ul>
-                </div>
+                </article>
 
-                <div class="card service-card analytics card-padding">
-                    <span class="service-icon">📊</span>
+                <article class="card service-card analytics card-padding" role="listitem">
+                    <span class="service-icon" aria-hidden="true">📊</span>
                     <h3>Business Analytics & Insight</h3>
                     <p><strong>"Assume nothing. Data drives decisions."</strong> Turn your operational data into visual, actionable business intelligence.</p>
                     <ul class="service-features">
@@ -688,10 +707,10 @@
                         <li>Client feedback analysis</li>
                         <li>Performance monitoring</li>
                     </ul>
-                </div>
+                </article>
 
-                <div class="card service-card digital card-padding">
-                    <span class="service-icon">🌐</span>
+                <article class="card service-card digital card-padding" role="listitem">
+                    <span class="service-icon" aria-hidden="true">🌐</span>
                     <h3>Digital Experience & Presence</h3>
                     <p><strong>"Be found, be trusted, be booked."</strong> Professional websites and digital touchpoints that convert visitors into customers.</p>
                     <ul class="service-features">
@@ -700,10 +719,10 @@
                         <li>Lead capture systems</li>
                         <li>Online booking integration</li>
                     </ul>
-                </div>
+                </article>
 
-                <div class="card service-card security card-padding">
-                    <span class="service-icon">🔐</span>
+                <article class="card service-card security card-padding" role="listitem">
+                    <span class="service-icon" aria-hidden="true">🔐</span>
                     <h3>Smart Infrastructure & Security</h3>
                     <p><strong>"Security is simplicity done right."</strong> Protect your data and ensure business continuity with smart, simple systems.</p>
                     <ul class="service-features">
@@ -712,18 +731,18 @@
                         <li>Document archiving systems</li>
                         <li>Device security setup</li>
                     </ul>
-                </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Problem/Solution Section -->
+    <!-- ===== PROBLEM/SOLUTION SECTION ===== -->
     <section id="solutions" class="section bg-white">
         <div class="container">
             <div class="grid-2 gap-lg problem-solution-grid">
                 <div class="problem-side">
                     <h3>What's Holding Your Business Back?</h3>
-                    <ul class="problem-list">
+                    <ul class="problem-list" role="list">
                         <li>Spending hours on manual data entry and follow-ups</li>
                         <li>Missing leads because enquiries aren't tracked properly</li>
                         <li>No clear picture of which services are most profitable</li>
@@ -735,7 +754,7 @@
 
                 <div class="solution-side">
                     <h3>How McSherry.pro Solves This</h3>
-                    <ul class="solution-list">
+                    <ul class="solution-list" role="list">
                         <li>Automated workflows handle repetitive tasks while you focus on customers</li>
                         <li>Every lead is captured, tracked, and followed up automatically</li>
                         <li>Clear dashboards show exactly which services make you money</li>
@@ -748,73 +767,20 @@
         </div>
     </section>
 
-    <!-- Testimonials -->
+    <!-- ===== TESTIMONIALS SECTION ===== -->
     <section id="testimonials" class="section bg-light">
         <div class="container">
-            <div class="section-header">
+            <header class="section-header">
                 <h2 class="section-title">Real Results from Real Businesses</h2>
                 <p class="section-subtitle">See how small businesses transformed their operations with smart systems.</p>
-            </div>
+            </header>
             
-            <div class="grid-auto gap-md">
-                <div class="card testimonial card-padding">
-                    <p class="testimonial-content">The booking automation alone saves me 10 hours a week. I can actually focus on the work instead of chasing appointments and sending reminders.</p>
-                    <div class="testimonial-author">Sarah M.</div>
+            <div class="grid-auto gap-md" role="list">
+                <article class="card testimonial card-padding" role="listitem">
+                    <blockquote class="testimonial-content">The booking automation alone saves me 10 hours a week. I can actually focus on the work instead of chasing appointments and sending reminders.</blockquote>
+                    <cite class="testimonial-author">Sarah M.</cite>
                     <div class="testimonial-company">Garden Design Services</div>
-                </div>
+                </article>
 
-                <div class="card testimonial card-padding">
-                    <p class="testimonial-content">Finally have a clear picture of which jobs are profitable. The dashboard shows everything at a glance - game changer for pricing decisions.</p>
-                    <div class="testimonial-author">Mike R.</div>
-                    <div class="testimonial-company">Electrical Contractors</div>
-                </div>
-
-                <div class="card testimonial card-padding">
-                    <p class="testimonial-content">Went from getting maybe 2-3 enquiries a week to 15+. The new website and automated follow-up system just works.</p>
-                    <div class="testimonial-author">Jenny K.</div>
-                    <div class="testimonial-company">Home Cleaning Service</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section id="contact" class="section cta-section text-center">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Transform Your Business?</h2>
-                <p>Let's discuss how smart systems can save you time, increase profits, and give you back control of your business.</p>
-                
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" required placeholder="John Smith" class="form-input">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required placeholder="john@business.com" class="form-input">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="business">Business Type</label>
-                        <select id="business" name="business" required class="form-input">
-                            <option value="">Select your business type</option>
-                            <option value="trades">Trades & Construction</option>
-                            <option value="services">Professional Services</option>
-                            <option value="retail">Retail & Hospitality</option>
-                            <option value="health">Health & Wellness</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="challenge">Biggest Challenge</label>
-                        <textarea id="challenge" name="challenge" rows="3" placeholder="What's the main problem you'd like to solve?" class="form-input"></textarea>
-                    </div>
-                    
-                    <button type="submit" class="form-submit">Get My Free Consultation</button>
-                </form>
-            </div>
-        </div>
-    </section>
+                <article class="card testimonial card-padding" role="listitem">
+                    <blockquote class="testimonial-content">Finally have a clear picture of which jobs are profitable. The dashboard shows everything at a glance - game changer for pricing decisions.</blockquote>
