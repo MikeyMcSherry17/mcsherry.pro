@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mcsherry.pro Business Pillars</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+        }
+
+        .pillars-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            min-height: 600px;
+        }
+
+        .pillar-section {
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .commercial {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-right: 3px solid #dee2e6;
+        }
+
+        .domestic {
+            background: linear-gradient(135deg, #e8f5e8 0%, #d4edda 100%);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid;
+        }
+
+        .commercial .section-header {
+            border-bottom-color: #495057;
+        }
+
+        .domestic .section-header {
+            border-bottom-color: #28a745;
+        }
+
+        .section-icon {
+            font-size: 2.5rem;
+            margin-right: 15px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: #6c757d;
+            margin-top: 5px;
+            font-weight: 400;
+        }
+
+        .pillar-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .pillar-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .pillar-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .commercial .pillar-card {
+            border-left-color: #495057;
+        }
+
+        .domestic .pillar-card {
+            border-left-color: #28a745;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .pillar-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .pillar-number {
+            background: linear-gradient(135deg, #495057, #6c757d);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 0.9rem;
+        }
+
+        .domestic .pillar-number {
+            background: linear-gradient(135deg, #28a745, #20c997);
+        }
+
+        .pillar-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            flex: 1;
+        }
+
+        .pillar-description {
+            color: #6c757d;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .pillar-details {
+            color: #495057;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            font-style: italic;
+        }
+
+        .optional-badge {
+            background: linear-gradient(135deg, #ffc107, #ffb300);
+            color: #212529;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .experimental-badge {
+            background: linear-gradient(135deg, #17a2b8, #138496);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .pillars-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .commercial {
+                border-right: none;
+                border-bottom: 3px solid #dee2e6;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #dee2e6;
+        }
+
+        .next-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .next-step {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .next-step h4 {
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .next-step p {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧱 mcsherry.pro</h1>
+            <div class="tagline">Business Pillars Framework</div>
+        </div>
+
+        <div class="pillars-container">
+            <!-- Commercial Section -->
+            <div class="pillar-section commercial">
+                <div class="section-header">
+                    <div class="section-icon">🏢</div>
+                    <div>
+                        <div class="section-title">Commercial Pillars</div>
+                        <div class="section-subtitle">Supporting small businesses, local service providers, and SMEs</div>
+                    </div>
+                </div>
+
+                <div class="pillar-grid">
+                    <div class="pillar-card">
+                        <div class="pillar-header">
+                            <div class="pillar-number">1</div>
+                            <div class="pillar-title">Business Analytics</div>
+                        </div>
+                        <div class="pillar-description">
+                            Data dashboards, KPI tracking, and cost visibility tools
+                        </div>
+                        <div class="pillar-details">
+                            Tailored insights for decision-makers in retail, fitness, repairs, etc.
+                        </div>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-header">
+                            <div class="pillar-number">2</div>
+                            <div class="pillar-title">Loyalty Framework</div>
+                        </div>
+                        <div class="pillar-description">
+                            Digital punch cards, referral schemes, VIP tiers
+                        </div>
+                        <div class="pillar-details">
+                            Designed for salons, cafés, massage studios, garages
+                        </div>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-header">
+                            <div class="pillar-number">3</div>
+                            <div class="pillar-title">Data Security & Compliance</div>
+                        </div>
+                        <div class="pillar-description">
+                            PCI DSS guidance, secure workflows, integration compliance
+                        </div>
+                        <div class="pillar-details">
+                            Ideal for payment processors, booking systems, and client data handling
+                        </div>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-header">
+                            <div class="pillar-number">4</div>
+                            <div class="pillar-title">Service Integration & Automation</div>
+                            <span class="optional-badge">Optional</span>
+                        </div>
+                        <div class="pillar-description">
+                            Connecting booking platforms, payment gateways, messaging apps
+                        </div>
+                        <div class="pillar-details">
+                            Workflow automation with tools like Zapier, n8n, and custom scripts
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Domestic Section -->
+            <div class="pillar-section domestic">
+                <div class="section-header">
+                    <div class="section-icon">🏠</div>
+                    <div>
+                        <div class="section-title">Domestic Pillars</div>
+                        <div class="section-subtitle">Targeted at homeowners, tech enthusiasts, and smart living adopters</div>
+                    </div>
+                </div>
+
+                <div class="pillar-grid">
+                    <div class="pillar-card">
+                        <div class="pillar-header">
+                            <div class="pillar-number">1</div>
+                            <div class="pillar-title">Smart Home Integration</div>
+                        </div>
+                        <div class="pillar-description">
+                            Energy monitoring, climate control, and security automation
+                        </div>
+                        <div class="pillar-details">
+                            Home Assistant dashboards, Raspberry Pi setups, mobile control
+                        </div>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-header">
+                            <div class="pillar-number">2</div>
+                            <div class="pillar-title">Personal Analytics</div>
+                            <span class="optional-badge">Optional</span>
+                            <span class="experimental-badge">Experimental</span>
+                        </div>
+                        <div class="pillar-description">
+                            Fitness and health data tracking (e.g. diabetes, gym progress)
+                        </div>
+                        <div class="pillar-details">
+                            Family scheduling, finance tracking, daily dashboard visibility
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h3 style="color: #2c3e50; margin-bottom: 15px;">Next Steps</h3>
+            <div class="next-steps">
+                <div class="next-step">
+                    <h4>📊 Visual Branding</h4>
+                    <p>Create branded diagrams and brochure layouts for each pillar</p>
+                </div>
+                <div class="next-step">
+                    <h4>🎯 Service Offerings</h4>
+                    <p>Define specific deliverables and packages under each pillar</p>
+                </div>
+                <div class="next-step">
+                    <h4>🛤️ Customer Journeys</h4>
+                    <p>Map out user experiences for both Commercial and Domestic clients</p>
+                </div>
+                <div class="next-step">
+                    <h4>🏷️ Brand Consistency</h4>
+                    <p>Consider renaming to "Business Solutions" vs "Home Tech" for clarity</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
